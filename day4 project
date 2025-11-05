@@ -1,0 +1,59 @@
+import random
+
+rock = '''
+    _______
+---'   ____)
+      (_____)
+      (_____)
+      (____)
+---.__(___)
+'''
+
+paper = '''
+    _______
+---'   ____)____
+          ______)
+          _______)
+         _______)
+---.__________)
+'''
+
+scissors = '''
+    _______
+---'   ____)____
+          ______)
+       __________)
+      (____)
+---.__(___)
+'''
+hand_list = [rock,paper,scissors]
+
+user_hand = int(input("what you chose type 0 for rock 1 for paper 2 for scissors"))
+if user_hand >2 :
+    print("worng number")
+else:
+    print("the user hand")
+    print(f"{hand_list[user_hand]}")
+    computer_hand = random.choice(hand_list)
+    print("the computer hand : ")
+    print(computer_hand)
+
+
+    if computer_hand != hand_list[user_hand] :
+        if computer_hand == hand_list[0]:
+            if hand_list[user_hand] == hand_list[1]:
+                print("you win")
+            else:
+                print("you lose")
+        if computer_hand == hand_list[1]:
+            if hand_list[user_hand] == hand_list[2]:
+                print("you win")
+            else:
+                print("you lose")
+        if computer_hand == hand_list[2]:
+            if hand_list[user_hand] == hand_list[0]:
+                print("you win")
+            else:
+                print("you lose")
+    else:
+        print("this is a tie !!")
