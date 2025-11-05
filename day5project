@@ -1,0 +1,64 @@
+import random
+
+letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+numbers = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
+symbols = ['!', '#', '$', '%', '&', '(', ')', '*', '+']
+
+print("Welcome to the PyPassword Generator!")
+nr_letters = int(input("How many letters would you like in your password?\n"))
+nr_symbols = int(input(f"How many symbols would you like?\n"))
+nr_numbers = int(input(f"How many numbers would you like?\n"))
+#easy :
+
+code_letters = ""
+for i in range(0,nr_letters):
+    code_letters += random.choice(letters)
+
+for i in range(0,nr_numbers):
+    code_letters += random.choice(numbers)
+
+for i in range(0,nr_symbols):
+    code_letters += random.choice(symbols)
+print(code_letters)
+print(len(code_letters))
+
+
+# hard : just to add suffle
+
+code_letters = ""
+for i in range(0,nr_letters):
+    code_letters += random.choice(letters)
+
+for i in range(0,nr_numbers):
+    code_letters += random.choice(numbers)
+
+for i in range(0,nr_symbols):
+    code_letters += random.choice(symbols)
+print(code_letters)
+print(len(code_letters))
+
+shuffle_code = ''.join(random.sample(code_letters,len(code_letters)))
+
+print(shuffle_code)
+
+#hard 2 :
+
+code_letters_list = []
+for i in range(0,nr_letters):
+    code_letters += random.choice(letters)
+    #or use append
+    code_letters_list.append(random.choice(letters))
+
+for i in range(0,nr_numbers):
+    code_letters_list.append(random.choice(numbers))
+
+for i in range(0,nr_symbols):
+    code_letters_list.append(random.choice(symbols))
+
+random.shuffle(code_letters_list)
+print(code_letters_list)
+password = ""
+for chart in code_letters_list :
+    password +=chart
+
+print(f"{password} is password")
